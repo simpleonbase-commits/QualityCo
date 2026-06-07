@@ -21,3 +21,19 @@ python3 -m http.server 8000
 ```
 
 Then visit <http://localhost:8000>.
+
+## Vercel Deployment
+
+This is a zero-build static site and can be deployed directly to Vercel. The repository includes `vercel.json` so Vercel serves the root `index.html` and applies the basic static-site headers.
+
+With the Vercel CLI installed, deploy the current directory to a production Vercel domain:
+
+```bash
+vercel --prod
+```
+
+If using an API token in automation, pass it through an environment variable rather than committing it to the repository:
+
+```bash
+VERCEL_TOKEN=your-token vercel --prod --token "$VERCEL_TOKEN"
+```
