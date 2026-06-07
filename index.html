@@ -36,6 +36,7 @@
           <a href="#mission">Mission</a>
           <a href="#research">Research</a>
           <a href="#model">Model</a>
+          <a href="#explorer">Explorer</a>
           <a href="#roadmap">Roadmap</a>
           <a href="#participate">Participate</a>
         </nav>
@@ -160,6 +161,103 @@
             <div role="listitem">Plasmin generation</div>
             <div role="listitem">Matrix remodeling</div>
             <div role="listitem">Migration / invasion / metastasis</div>
+          </div>
+        </section>
+
+        <section id="explorer" class="explorer-section reveal" aria-labelledby="explorer-title">
+          <div class="section-heading wide">
+            <p class="eyebrow">Interactive evidence explorer</p>
+            <h2 id="explorer-title">Touch the mechanism map to inspect what the literature suggests.</h2>
+            <p>
+              This module translates the first article pass into an explorable, non-clinical hypothesis map. It keeps
+              mechanism, cancer-context evidence, and uncertainty visible so contributors can decide what to verify next.
+            </p>
+          </div>
+
+          <div class="explorer-layout">
+            <div class="mechanism-lab" aria-label="Illustrated S100A10 and annexin A2 interaction map">
+              <svg class="mechanism-illustration" viewBox="0 0 720 460" role="img" aria-labelledby="map-title map-desc">
+                <title id="map-title">S100A10 and annexin A2 hypothesis map</title>
+                <desc id="map-desc">
+                  An illustrated pathway showing S100A10 binding annexin A2, localizing at the cell surface, promoting
+                  plasmin generation, and connecting to matrix remodeling, invasion, and tumor microenvironment questions.
+                </desc>
+                <defs>
+                  <radialGradient id="cellGlow" cx="50%" cy="45%" r="62%">
+                    <stop offset="0%" stop-color="#73fbd3" stop-opacity="0.26" />
+                    <stop offset="70%" stop-color="#7ea7ff" stop-opacity="0.1" />
+                    <stop offset="100%" stop-color="#ffffff" stop-opacity="0.03" />
+                  </radialGradient>
+                  <linearGradient id="signalStroke" x1="0" x2="1" y1="0" y2="1">
+                    <stop stop-color="#73fbd3" />
+                    <stop offset="1" stop-color="#7ea7ff" />
+                  </linearGradient>
+                </defs>
+                <path class="cell-shape map-node complex plasmin invasion" d="M112 226C124 108 242 66 363 91c115 24 231 89 242 201 11 111-99 147-228 147S98 350 112 226Z" />
+                <path class="membrane map-node complex plasmin" d="M104 226C117 95 242 50 369 76c122 25 248 96 260 214" />
+                <g class="map-node complex" data-label="ANXA2-S100A10 complex">
+                  <circle cx="288" cy="178" r="40" />
+                  <circle cx="374" cy="178" r="40" />
+                  <circle cx="331" cy="127" r="24" />
+                  <circle cx="331" cy="229" r="24" />
+                  <text x="331" y="183">AIIt</text>
+                </g>
+                <g class="map-node plasmin" data-label="Plasmin pulse">
+                  <path d="M430 148 C500 126, 542 151, 573 106" />
+                  <path d="M455 199 C515 181, 560 203, 603 166" />
+                  <circle cx="602" cy="105" r="18" />
+                  <circle cx="631" cy="161" r="15" />
+                  <text x="526" y="88">Plg / tPA</text>
+                </g>
+                <g class="map-node invasion" data-label="Matrix remodeling">
+                  <path d="M111 336 C176 312, 232 370, 300 341 S430 303, 502 344 S625 372, 684 327" />
+                  <path d="M126 385 C190 354, 238 412, 312 382 S447 343, 518 386 S633 414, 698 375" />
+                  <text x="496" y="426">ECM remodeling</text>
+                </g>
+                <g class="map-node immune" data-label="Tumor microenvironment">
+                  <circle cx="145" cy="132" r="25" />
+                  <circle cx="190" cy="88" r="18" />
+                  <path d="M178 147 C215 172, 234 200, 260 231" />
+                  <text x="75" y="83">macrophage traffic?</text>
+                </g>
+                <g class="map-node validation" data-label="Public-data validation">
+                  <rect x="68" y="252" width="118" height="78" rx="18" />
+                  <path d="M91 280h72M91 302h44" />
+                  <text x="80" y="246">TCGA / CPTAC</text>
+                </g>
+              </svg>
+            </div>
+
+            <div class="explorer-console">
+              <div class="signal-controls" role="group" aria-label="Choose an evidence thread">
+                <button class="signal-button is-active" type="button" data-signal="complex" aria-pressed="true">Complex assembly</button>
+                <button class="signal-button" type="button" data-signal="plasmin" aria-pressed="false">Plasmin switch</button>
+                <button class="signal-button" type="button" data-signal="invasion" aria-pressed="false">Invasion evidence</button>
+                <button class="signal-button" type="button" data-signal="immune" aria-pressed="false">Immune traffic</button>
+                <button class="signal-button" type="button" data-signal="validation" aria-pressed="false">Validate next</button>
+              </div>
+
+              <article class="evidence-panel" aria-live="polite">
+                <p class="evidence-kicker" data-evidence-tag>Mechanism anchor</p>
+                <h3 data-evidence-title>ANXA2 appears to organize S100A10 at membranes.</h3>
+                <p data-evidence-body>
+                  Reviews describe S100A10/p11 as commonly paired with annexin A2 in the AIIt heterotetramer, a setup
+                  that can place S100A10 at membrane surfaces where cancer-relevant protease biology may occur.
+                </p>
+                <div class="confidence-meter" aria-label="Evidence maturity">
+                  <span>Evidence maturity</span>
+                  <div><i data-evidence-meter style="width: 64%"></i></div>
+                </div>
+              </article>
+
+              <div class="paper-stack" aria-label="Source articles used for this module">
+                <a href="https://pubmed.ncbi.nlm.nih.gov/15574370/" target="_blank" rel="noreferrer">Kwon et al., 2005 — plasminogen receptor review</a>
+                <a href="https://pubmed.ncbi.nlm.nih.gov/27351226/" target="_blank" rel="noreferrer">Madureira et al., 2016 — RAS transformation and S100A10</a>
+                <a href="https://pubmed.ncbi.nlm.nih.gov/22042827/" target="_blank" rel="noreferrer">Phipps et al., 2011 — tumor-promoting macrophage migration</a>
+                <a href="https://pubmed.ncbi.nlm.nih.gov/23828264/" target="_blank" rel="noreferrer">Shang et al., 2013 — colorectal cancer biomarker study</a>
+                <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8698604/" target="_blank" rel="noreferrer">Bharadwaj et al., 2021 — ANXA2/S100A10 complex review</a>
+              </div>
+            </div>
           </div>
         </section>
 
